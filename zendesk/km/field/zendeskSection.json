@@ -1,0 +1,14 @@
+{
+  "$id": "zendesk_section",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "The name of the Section under which the article lives within the Zendesk Help Center.",
+  "displayName": "Zendesk Section",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "stringType": {
+      "stereotype": "SIMPLE"
+    }
+  },
+  "typeId": "string"
+}

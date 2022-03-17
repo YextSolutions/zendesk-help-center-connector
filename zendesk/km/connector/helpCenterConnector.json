@@ -1,0 +1,183 @@
+{
+  "$id": "zendesk_helpCenterConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "Zendesk Help Center Connector",
+  "entityType": "helpArticle",
+  "source": {
+    "sourceConfig": {
+      "functionConfig": {
+        "plugin": "helpCenterContent",
+        "function": "fetchHelpCenterContent",
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "articles"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "URL",
+        "path": "html_url"
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "name"
+      },
+      {
+        "type": "JSON",
+        "header": "Body",
+        "path": "body"
+      },
+      {
+        "type": "JSON",
+        "header": "Label Names",
+        "path": "label_names"
+      },
+      {
+        "type": "JSON",
+        "header": "Promoted",
+        "path": "promoted"
+      },
+      {
+        "type": "JSON",
+        "header": "Vote Count",
+        "path": "vote_count"
+      },
+      {
+        "type": "JSON",
+        "header": "Vote Sum",
+        "path": "vote_sum"
+      },
+      {
+        "type": "JSON",
+        "header": "Date Created",
+        "path": "created_at"
+      },
+      {
+        "type": "JSON",
+        "header": "Date Updated",
+        "path": "updated_at"
+      },
+      {
+        "type": "JSON",
+        "header": "Section Name",
+        "path": "sectionInfo.name"
+      },
+      {
+        "type": "JSON",
+        "header": "Category Name",
+        "path": "categoryInfo.name"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "extractText": {
+        "inputHeader": "Date Created",
+        "newColumnHeader": "Date Created_Converted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Date Updated",
+        "newColumnHeader": "Date Updated_Converted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "zendesk_zendeskCategory",
+      "header": "Category Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "promoted",
+      "header": "Promoted",
+      "subfieldPath": []
+    },
+    {
+      "field": "externalArticlePostDate",
+      "header": "Date Created_Converted",
+      "subfieldPath": []
+    },
+    {
+      "field": "entityId",
+      "header": "ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "keywords",
+      "header": "Label Names",
+      "subfieldPath": []
+    },
+    {
+      "field": "voteCount",
+      "header": "Vote Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "externalArticleUpdateDate",
+      "header": "Date Updated_Converted",
+      "subfieldPath": []
+    },
+    {
+      "field": "body",
+      "header": "Body",
+      "subfieldPath": []
+    },
+    {
+      "field": "landingPageUrl",
+      "header": "URL",
+      "subfieldPath": []
+    },
+    {
+      "field": "zendesk_zendeskSection",
+      "header": "Section Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "voteSum",
+      "header": "Vote Sum",
+      "subfieldPath": []
+    }
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "America/New_York",
+      "startDate": "2022-03-17",
+      "startTime": "03:00",
+      "frequencyType": "DAILY"
+    },
+    "runMode": "DEFAULT"
+  }
+}
