@@ -6,7 +6,7 @@
   "source": {
     "sourceConfig": {
       "functionConfig": {
-        "plugin": "helpCenterContent",
+        "plugin": "zendesk_helpCenterContent",
         "function": "fetchHelpCenterContent",
         "dataFormat": "JSON"
       }
