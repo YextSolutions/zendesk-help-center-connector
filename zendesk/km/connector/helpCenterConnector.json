@@ -111,7 +111,7 @@
   ],
   "mappings": [
     {
-      "field": "zendesk_zendeskCategory",
+      "field": "zendesk_category",
       "header": "Category Name",
       "subfieldPath": []
     },
@@ -156,7 +156,7 @@
       "subfieldPath": []
     },
     {
-      "field": "zendesk_zendeskSection",
+      "field": "zendesk_section",
       "header": "Section Name",
       "subfieldPath": []
     },
