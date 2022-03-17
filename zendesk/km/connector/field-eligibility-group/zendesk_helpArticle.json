@@ -1,0 +1,11 @@
+{
+    "$id": "zendesk_helpArticle",
+    "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+    "name": "Help Article",
+    "entityType": "helpArticle",
+    "fields": [
+      "zendesk_zendeskCategory",
+      "zendesk_zendeskSection"
+    ],
+    "required": []
+  }
