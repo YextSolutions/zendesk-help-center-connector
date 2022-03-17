@@ -4,8 +4,8 @@
     "name": "Help Article",
     "entityType": "helpArticle",
     "fields": [
-      "zendesk_zendeskCategory",
-      "zendesk_zendeskSection"
+      "zendesk_category",
+      "zendesk_section"
     ],
     "required": []
   }
